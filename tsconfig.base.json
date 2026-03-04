@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@pn/shared-ui": ["packages/shared-ui/src/index.ts"],
+      "@pn/shared-types": ["packages/shared-types/src/index.ts"],
+      "@pn/shared-utils": ["packages/shared-utils/src/index.ts"],
+      "@pn/config": ["packages/config/src/index.ts"],
+      "dashboard/Module": ["apps/dashboard/src/remote-entry.ts"],
+      "intelligence/Module": ["apps/intelligence/src/remote-entry.ts"],
+      "planning/Module": ["apps/planning/src/remote-entry.ts"],
+      "output/Module": ["apps/output/src/remote-entry.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
