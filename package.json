@@ -3,11 +3,21 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "yarn nx serve host",
+    "build": "yarn nx build host",
+    "start:dashboard": "yarn nx serve dashboard",
+    "start:intelligence": "yarn nx serve intelligence",
+    "start:output": "yarn nx serve output",
+    "start:planning": "yarn nx serve planning"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "@eslint/js": "^9.8.0",
     "@module-federation/enhanced": "^0.21.2",
+    "@mui/icons-material": "^7.3.9",
+    "@mui/material": "^7.3.9",
     "@nx/eslint": "22.5.3",
     "@nx/eslint-plugin": "22.5.3",
     "@nx/jest": "22",
@@ -60,6 +70,8 @@
   },
   "packageManager": "yarn@4.6.0",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "6.30.3",

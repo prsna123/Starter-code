@@ -41,6 +41,8 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
+.yarn/*
+install-state.gz
 
 #unrefactored TODO --currently placed unrefactored folder here, mostly that needs to be removed in future
 /unrefactored
