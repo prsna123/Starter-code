@@ -21,5 +21,6 @@ import { useRegionalContext } from './RegionalProvider';
  */
 export function useFeatureFlag(flag: keyof FeatureFlags): boolean {
   const { config } = useRegionalContext();
+  console.log('Checking feature flag:', flag, 'Value:', config.features[flag]);
   return config.features[flag];
 }

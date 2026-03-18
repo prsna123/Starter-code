@@ -1,0 +1,245 @@
+@use '../../styles/settings/settings' as *;
+@use '../../styles/tools/tools' as tools;
+@use 'sass:color';
+
+// atom component: ButtonMui (Material-UI Override)
+// BEM Naming Convention with MUI class overrides
+//
+// This demonstrates how to:
+// 1. Override MUI Button's ripple effect and transitions
+// 2. Apply custom color schemes using ITCSS design tokens
+// 3. Control button states (hover, active, disabled, focus)
+// 4. Maintain MUI's touch ripple while customizing appearance
+
+.c-button-mui {
+  // Component base - targets the MUI Button root
+  &.MuiButton-root {
+    text-transform: none;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-base;
+    box-shadow: none;
+    @include tools.transition(background-color, border-color, color, transform);
+
+    // Override MUI's ripple color
+    :global(.MuiTouchRipple-root) {
+      color: rgba(white, 0.3);
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    // Focus visible for accessibility
+    &:focus-visible {
+      @include tools.focus-visible;
+    }
+  }
+
+  // Size modifiers
+  &--sm {
+    &.MuiButton-root {
+      padding: $spacing-2 $spacing-3;
+      font-size: $font-size-sm;
+      min-width: 64px;
+    }
+
+    // Icon button sizing
+    &.MuiButton-root.MuiIconButton-root {
+      padding: $spacing-2;
+    }
+  }
+
+  &--md {
+    &.MuiButton-root {
+      padding: $spacing-3 $spacing-4;
+      font-size: $font-size-base;
+      min-width: 80px;
+    }
+
+    &.MuiButton-root.MuiIconButton-root {
+      padding: $spacing-3;
+    }
+  }
+
+  &--lg {
+    &.MuiButton-root {
+      padding: $spacing-4 $spacing-6;
+      font-size: $font-size-lg;
+      min-width: 96px;
+    }
+
+    &.MuiButton-root.MuiIconButton-root {
+      padding: $spacing-4;
+    }
+  }
+
+  // Variant modifiers - override MUI's default color schemes
+
+  &--contained {
+    // Primary contained button (default)
+    &.MuiButton-containedPrimary {
+      background-color: var(--color-primary);
+      color: white;
+
+      &:hover {
+        background-color: var(--color-primary-dark);
+      }
+
+      &:active {
+        background-color: var(--color-primary-dark);
+        filter: brightness(0.9);
+      }
+
+      :global(.MuiTouchRipple-root) {
+        color: rgba(white, 0.4);
+      }
+    }
+
+    // Secondary contained button
+    &.MuiButton-containedSecondary {
+      background-color: var(--color-secondary);
+      color: white;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
+      &:active {
+        filter: brightness(0.85);
+      }
+    }
+
+    // Error contained button
+    &.MuiButton-containedError {
+      background-color: $color-error;
+      color: white;
+
+      &:hover {
+        background-color: color.adjust($color-error, $lightness: -10%);
+      }
+    }
+
+    // Success contained button
+    &.MuiButton-containedSuccess {
+      background-color: $color-success;
+      color: white;
+
+      &:hover {
+        background-color: color.adjust($color-success, $lightness: -10%);
+      }
+    }
+  }
+
+  &--outlined {
+    // Primary outlined button
+    &.MuiButton-outlinedPrimary {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background-color: transparent;
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+        border-color: var(--color-primary);
+      }
+
+      &:active {
+        background-color: color-mix(in srgb, var(--color-primary) 16%, transparent);
+      }
+
+      :global(.MuiTouchRipple-root) {
+        color: var(--color-primary);
+      }
+    }
+
+    // Secondary outlined button
+    &.MuiButton-outlinedSecondary {
+      color: var(--color-secondary);
+      border-color: var(--color-secondary);
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--color-secondary) 8%, transparent);
+        border-color: var(--color-secondary);
+      }
+
+      &:active {
+        background-color: color-mix(in srgb, var(--color-secondary) 16%, transparent);
+      }
+    }
+
+    // Error outlined button
+    &.MuiButton-outlinedError {
+      color: $color-error;
+      border-color: $color-error;
+
+      &:hover {
+        background-color: rgba($color-error, 0.08);
+      }
+    }
+  }
+
+  &--text {
+    // Primary text button
+    &.MuiButton-textPrimary {
+      color: var(--color-primary);
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
+      }
+
+      &:active {
+        background-color: color-mix(in srgb, var(--color-primary) 16%, transparent);
+      }
+    }
+
+    // Secondary text button
+    &.MuiButton-textSecondary {
+      color: var(--color-secondary);
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--color-secondary) 8%, transparent);
+      }
+    }
+  }
+
+  // Disabled state override
+  &.MuiButton-root:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: $color-text-disabled;
+    background-color: $color-bg-tertiary;
+    border-color: $color-border;
+  }
+
+  // Full width modifier
+  &--full-width {
+    &.MuiButton-root {
+      width: 100%;
+    }
+  }
+
+  // Start icon spacing
+  &.MuiButton-root {
+    :global(.MuiButton-startIcon) {
+      margin-right: $spacing-2;
+      margin-left: 0;
+    }
+
+    :global(.MuiButton-endIcon) {
+      margin-left: $spacing-2;
+      margin-right: 0;
+    }
+  }
+
+  // Loading state (if using MUI's loading prop)
+  &.MuiButton-root {
+    :global(.MuiCircularProgress-root) {
+      color: inherit;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}

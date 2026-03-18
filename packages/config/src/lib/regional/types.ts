@@ -16,6 +16,8 @@ export type DetectionMethod = 'domain' | 'environment' | 'default';
  * Layer 2: Content Visibility
  */
 export interface FeatureFlags {
+  /** Show Filter component */
+  showFilterComponent: boolean;
   /** Show announcement banner for site-wide messages (US only) */
   showAnnouncementBanner: boolean;
   /** Show analytics dashboard (all regions) */

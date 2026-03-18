@@ -10,13 +10,14 @@ export const REGIONAL_CONFIGS: Record<Region, RegionalConfig> = {
   us: {
     region: 'us',
     features: {
+      showFilterComponent: false,
       showAnnouncementBanner: true,
       showAnalyticsDashboard: true,
       showAdvancedReports: true,
       enableBetaFeatures: true,
     },
     theme: {
-      primaryColor: '#1e40af', // Blue
+      primaryColor: '#ff0000', // Red (changed from blue)
       secondaryColor: '#6b7280', // Gray
       fontFamily: 'Inter, sans-serif',
       spacing: 8,
@@ -36,6 +37,7 @@ export const REGIONAL_CONFIGS: Record<Region, RegionalConfig> = {
   global: {
     region: 'global',
     features: {
+      showFilterComponent: false,
       showAnnouncementBanner: false,
       showAnalyticsDashboard: true,
       showAdvancedReports: false,

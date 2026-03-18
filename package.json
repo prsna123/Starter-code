@@ -9,7 +9,9 @@
     "start:dashboard": "yarn nx serve dashboard",
     "start:intelligence": "yarn nx serve intelligence",
     "start:output": "yarn nx serve output",
-    "start:planning": "yarn nx serve planning"
+    "start:planning": "yarn nx serve planning",
+    "storybook:shared-ui": "cd packages/shared-ui && start-storybook -p 6006 -s public",
+    "build-storybook:shared-ui": "cd packages/shared-ui && build-storybook -s public"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -33,6 +35,11 @@
     "@rspack/core": "1.6.8",
     "@rspack/dev-server": "^1.1.4",
     "@rspack/plugin-react-refresh": "^1.0.0",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-interactions": "8.6.14",
+    "@storybook/addon-links": "^10.2.17",
+    "@storybook/jest": "^0.2.3",
+    "@storybook/react": "^10.2.17",
     "@svgr/webpack": "^8.0.1",
     "@swc-node/register": "~1.11.1",
     "@swc/cli": "~0.8.0",

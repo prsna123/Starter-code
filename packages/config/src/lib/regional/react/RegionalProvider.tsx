@@ -32,6 +32,19 @@ try {
   // Dev tools not available - this is fine, it's optional
 }
 
+// Extend Window interface for debugging
+declare global {
+  interface Window {
+    __REGIONAL_CONFIG__?: {
+      region: Region;
+      config: RegionalConfig;
+      detectionMethod: string;
+      detectedAt: string;
+      version: string;
+    };
+  }
+}
+
 /**
  * Regional context value
  */
@@ -119,7 +132,7 @@ export const RegionalProvider: React.FC<RegionalProviderProps> = ({
       typeof window !== 'undefined' &&
       process.env.NODE_ENV !== 'production'
     ) {
-      (window as any).__REGIONAL_CONFIG__ = {
+      window.__REGIONAL_CONFIG__ = {
         region: contextValue.region,
         config: contextValue.config,
         detectionMethod: detectionInfo?.method || 'unknown',
