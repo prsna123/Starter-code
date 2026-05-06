@@ -1,4 +1,4 @@
-CREATE TABLE input.promo_calendar (
+CREATE TABLE dev_test.promo_calendar (
     -- Primary Key
     id UNIQUEIDENTIFIER NOT NULL CONSTRAINT DF_promo_calendar_id DEFAULT NEWSEQUENTIALID(),
     
@@ -32,9 +32,9 @@ CREATE TABLE input.promo_calendar (
     CONSTRAINT UQ_promo_calendar_event UNIQUE (event_id, tpo_tactic_id, tpo_slogan_id),
     
     -- Relationships
-    CONSTRAINT FK_promo_calendar_scenario_id FOREIGN KEY (promo_calendar_scenario_id) REFERENCES input.scenario (scenario_id),
-    CONSTRAINT FK_promo_calendar_tpo_slogan_id FOREIGN KEY (tpo_slogan_id) REFERENCES input.promo_slogan (tpo_slogan_id),
-    CONSTRAINT FK_promo_calendar_tpo_tactic_id FOREIGN KEY (tpo_tactic_id) REFERENCES input.promo_variants (tpo_tactic_id),
-    CONSTRAINT FK_promo_calendar_customer_id FOREIGN KEY (customer_id) REFERENCES input.dim_customer (customer_id),
-    CONSTRAINT FK_promo_calendar_geo FOREIGN KEY (geo) REFERENCES input.dim_geo (geo_id) 
+    CONSTRAINT FK_promo_calendar_scenario_id FOREIGN KEY (promo_calendar_scenario_id) REFERENCES dev_test.scenario (scenario_id),
+    CONSTRAINT FK_promo_calendar_tpo_slogan_id FOREIGN KEY (tpo_slogan_id) REFERENCES dev_test.promo_slogan (tpo_slogan_id),
+    CONSTRAINT FK_promo_calendar_tpo_tactic_id FOREIGN KEY (tpo_tactic_id) REFERENCES dev_test.promo_variants (tpo_tactic_id),
+    CONSTRAINT FK_promo_calendar_customer_id FOREIGN KEY (customer_id) REFERENCES dev_test.dim_customer (customer_id),
+    CONSTRAINT FK_promo_calendar_geo FOREIGN KEY (geo) REFERENCES dev_test.dim_geo (geo_id) 
 );

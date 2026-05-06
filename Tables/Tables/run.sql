@@ -1,5 +1,5 @@
 CREATE TABLE dev_test.[run] (
-    -- Primary Key (Ensure input.scenario.scenario_id matches this type)
+    -- Primary Key (Ensure dev_test.scenario.scenario_id matches this type)
     ui_run_id VARCHAR(30) NOT NULL,
     databricks_run_id NVARCHAR(255) NULL,
     analytics_run_type NVARCHAR(255) NULL,

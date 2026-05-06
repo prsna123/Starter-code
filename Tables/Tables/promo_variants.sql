@@ -1,4 +1,4 @@
-CREATE TABLE input.promo_variants (
+CREATE TABLE dev_test.promo_variants (
 	id UNIQUEIDENTIFIER NOT NULL CONSTRAINT DF_promo_variants_id DEFAULT NEWSEQUENTIALID(),
 	tpo_tactic_id UNIQUEIDENTIFIER NOT NULL,
 	customer_id BIGINT NULL,
@@ -15,6 +15,6 @@ CREATE TABLE input.promo_variants (
 
 	CONSTRAINT PK_promo_variants PRIMARY KEY CLUSTERED (id),
 	CONSTRAINT UQ_promo_variants_tpo_tactic_id UNIQUE (tpo_tactic_id),
-	CONSTRAINT FK_promo_variants_customer_id FOREIGN KEY (customer_id) REFERENCES input.dim_customer (customer_id),
-	CONSTRAINT FK_promo_variants_geo_id FOREIGN KEY (geo_id) REFERENCES input.dim_geo (geo_id)
+	CONSTRAINT FK_promo_variants_customer_id FOREIGN KEY (customer_id) REFERENCES dev_test.dim_customer (customer_id),
+	CONSTRAINT FK_promo_variants_geo_id FOREIGN KEY (geo_id) REFERENCES dev_test.dim_geo (geo_id)
 );

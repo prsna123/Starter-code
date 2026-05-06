@@ -1,4 +1,4 @@
-CREATE TABLE input.dim_customer (
+CREATE TABLE dev_test.dim_customer (
 	customer_id BIGINT NOT NULL,
 	customer_name VARCHAR(100) NULL,
 	local_customer_channel VARCHAR(150) NULL,
